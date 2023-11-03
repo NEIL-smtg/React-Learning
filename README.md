@@ -1,2 +1,2 @@
 # React-Learning
-Learning MERN stack
+Learning MERN Stack (incl. Redux, React router) 
