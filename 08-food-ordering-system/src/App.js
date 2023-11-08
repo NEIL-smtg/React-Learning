@@ -1,9 +1,26 @@
+import { useState } from "react";
+import Header from "./components/Layout/Header";
+import Meals from "./components/Meals/Meals";
+import Cart from "./components/Cart/Cart";
+import CartProvider from "./store/CartProvider";
+
 function App() {
-  return (
-    <div>
-      <h2>Let's get started!</h2>
-    </div>
-  );
+
+	const [cartIsShown, setCartIsShown] = useState(false);
+
+	const showCartToggler = () => {
+		setCartIsShown(!cartIsShown);
+	};
+
+	return (
+		<CartProvider>
+			{cartIsShown && <Cart onCloseCart={showCartToggler}/>}
+			<Header onShowCart={showCartToggler}/>
+			<main>
+				<Meals />
+			</main>
+		</CartProvider>
+	);
 }
 
 export default App;
